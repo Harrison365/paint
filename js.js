@@ -5,8 +5,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = 1200;
 canvas.height = 800;
 
-let isMoved = false;
-
 let isDrawing = false;
 let x, y;
 ctx.strokeStyle = "black";
@@ -14,7 +12,6 @@ ctx.lineWidth = 20;
 
 canvas.addEventListener("mousedown", (e) => {
   isDrawing = true;
-  isMoved = false;
   x = e.offsetX;
   y = e.offsetY;
   drawDot(x, y);
@@ -24,24 +21,20 @@ canvas.addEventListener("mousedown", (e) => {
 canvas.addEventListener("mouseup", () => {
   isDrawing = false;
   ctx.beginPath();
-  if (!isMoved) {
-    drawDot(x, y);
-  }
-  ctx.beginPath();
 });
 
 canvas.addEventListener("mousemove", draw);
 
 function draw(e) {
   if (!isDrawing) return;
-  isMoved = true;
-  ctx.lineCap = "round";
 
+  ctx.lineCap = "round";
   ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
   ctx.beginPath();
   ctx.moveTo(e.offsetX, e.offsetY);
 }
+
 function drawDot(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, ctx.lineWidth / 2, 0, Math.PI * 2, true);
