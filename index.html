@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" href="bob.jpg" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paint</title>
@@ -9,6 +10,22 @@
   </head>
   <body>
     <canvas class="canvas"></canvas>
-    <div class="palette"></div>
+    <div class="palette">
+      <div class="colors">
+        <div class="palette_color black"></div>
+        <div class="palette_color brown"></div>
+        <div class="palette_color red"></div>
+        <div class="palette_color orange"></div>
+        <div class="palette_color yellow"></div>
+        <div class="palette_color light_green"></div>
+        <div class="palette_color white"></div>
+        <div class="palette_color gray"></div>
+        <div class="palette_color dark_green"></div>
+        <div class="palette_color light_blue"></div>
+        <div class="palette_color dark_blue"></div>
+        <div class="palette_color purple"></div>
+      </div>
+      <div id="selected_color"></div>
+    </div>
   </body>
 </html>
