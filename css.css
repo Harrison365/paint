@@ -45,6 +45,17 @@ body {
   margin: 7.5px;
 }
 
+#selected_color {
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  height: 1.5cm;
+  width: 1.5cm;
+  background-color: black;
+  margin-left: 25px;
+}
+
 .black {
   background-color: black;
 }
@@ -81,15 +92,4 @@ body {
 }
 .purple {
   background-color: #9c27b0;
-}
-
-#selected_color {
-  border-color: #ffffff;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 50%;
-  height: 1.5cm;
-  width: 1.5cm;
-  background-color: black;
-  margin-left: 25px;
 }
