@@ -23,7 +23,7 @@ body {
   padding: 10px;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .colors {
@@ -35,10 +35,7 @@ body {
 }
 
 .palette_color {
-  border-color: white;
-  border-style: solid;
-  border-width: 1px;
-  margin: 0 10px;
+  border: 1px solid white;
   border-radius: 50%;
   height: 1cm;
   width: 1cm;
@@ -46,9 +43,7 @@ body {
 }
 
 #selected_color {
-  border-color: #ffffff;
-  border-style: solid;
-  border-width: 2px;
+  border: 2px solid #ffffff;
   border-radius: 50%;
   height: 1.5cm;
   width: 1.5cm;
@@ -62,7 +57,6 @@ body {
 .brown {
   background-color: #795548;
 }
-
 .red {
   background-color: #f44335;
 }
