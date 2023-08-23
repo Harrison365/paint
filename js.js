@@ -65,8 +65,7 @@ const colorLookup = {
 
 colors.forEach((color) => {
   color.addEventListener("click", () => {
-    console.log(color.classList[1]);
-    selected_color.style.backgroundColor = colorLookup[color.classList[1]];
-    ctx.strokeStyle = colorLookup[color.classList[1]];
+    selected_color.style.backgroundColor = colorLookup[color.id];
+    ctx.strokeStyle = colorLookup[color.id];
   });
 });
