@@ -69,3 +69,20 @@ colors.forEach((color) => {
     ctx.strokeStyle = colorLookup[color.id];
   });
 });
+
+//selecting size
+
+const selector = document.getElementsByClassName("brush-size-form");
+
+selector[0].addEventListener("change", (e) => {
+  console.log(e.target.value);
+  ctx.lineWidth = e.target.value;
+});
+
+//clear button
+const clearButton = document.getElementsByClassName("clear");
+
+clearButton[0].addEventListener("click", () => {
+  //refresh page
+  location.reload();
+});

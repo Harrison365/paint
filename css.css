@@ -85,11 +85,12 @@ select {
   background-position: right center;
   background-repeat: no-repeat;
   filter: invert(100%);
-  padding-left: 0.65cm;
+  padding-left: 0.75cm;
 }
 /* on hover select */
 .brush-size-form:hover {
-  background-color: #2c2c2c;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
 
 /* Make default drop-down arrow invisible */
@@ -97,6 +98,21 @@ select {
   -webkit-appearance: none;
 }
 /* ^^^ */
+
+.clear {
+  padding: 0.2cm;
+  margin: 1.2cm;
+  background-color: #212121;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  width: 80px;
+}
+
+.clear:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
 
 #black {
   background-color: black;
