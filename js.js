@@ -70,19 +70,37 @@ colors.forEach((color) => {
   });
 });
 
-//selecting size
-
-const selector = document.getElementsByClassName("brush-size-form");
-
-selector[0].addEventListener("change", (e) => {
-  console.log(e.target.value);
-  ctx.lineWidth = e.target.value;
-});
-
 //clear button
 const clearButton = document.getElementsByClassName("clear");
 
 clearButton[0].addEventListener("click", () => {
   //refresh page
-  location.reload();
+  // location.reload();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+//selecting size
+
+const selector_form = document.getElementsByClassName("brush-size-form");
+const selector = document.getElementById("brush_size_select");
+const blank_option = document.getElementById("blank");
+const slider = document.getElementById("size-slider");
+
+selector_form[0].addEventListener("change", (e) => {
+  ctx.lineWidth = e.target.value;
+  selected_color.style.width = e.target.value + "px";
+  selected_color.style.height = e.target.value + "px";
+  slider.value = e.target.value;
+  blank_option.innerText = "";
+});
+
+//size-slider
+
+slider.addEventListener("input", (e) => {
+  ctx.lineWidth = e.target.value;
+  selected_color.style.width = e.target.value + "px";
+  selected_color.style.height = e.target.value + "px";
+  blank_option.value = e.target.value;
+  blank_option.innerText = e.target.value;
+  brush_size_select.value = e.target.value;
 });

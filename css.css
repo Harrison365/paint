@@ -49,10 +49,26 @@ body {
 #selected_color {
   border: 2px solid #ffffff;
   border-radius: 50%;
-  height: 1.5cm;
-  width: 1.5cm;
+  height: 20px;
+  width: 20px;
   background-color: black;
   margin-left: 25px;
+}
+
+#selected_color_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+}
+
+#brush_size_controls_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1cm;
+  padding-bottom: 1.5cm;
 }
 
 .divider {
@@ -101,7 +117,7 @@ select {
 
 .clear {
   padding: 0.2cm;
-  margin: 1.2cm;
+  margin: 0.5cm;
   background-color: #212121;
   border: none;
   color: #fff;
