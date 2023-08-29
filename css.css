@@ -73,7 +73,7 @@ body {
   align-items: center;
   flex-direction: column;
   padding: 1cm;
-  padding-bottom: 1.5cm;
+  padding-bottom: 1.9cm;
   height: 100%;
 }
 
@@ -112,6 +112,9 @@ body {
 }
 #zoom-label-container {
   height: 1.5cm;
+}
+#br {
+  height: 0.4cm;
 }
 
 select {
@@ -190,8 +193,4 @@ select {
 }
 #purple {
   background-color: #9c27b0;
-}
-
-#br {
-  height: 0.5cm;
 }
