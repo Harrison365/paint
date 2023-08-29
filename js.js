@@ -104,3 +104,11 @@ slider.addEventListener("input", (e) => {
   blank_option.innerText = e.target.value;
   brush_size_select.value = e.target.value;
 });
+
+//Zoom
+const zoom = document.getElementById("zoom-slider");
+
+zoom.addEventListener("input", (e) => {
+  canvas.style.transform = `scale(${e.target.value})`;
+  console.log(e.target.value);
+});
