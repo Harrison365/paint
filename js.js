@@ -1,4 +1,3 @@
-//drawing on canvas
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -10,29 +9,44 @@ let x, y;
 ctx.strokeStyle = "black";
 ctx.lineWidth = 20;
 
-canvas.addEventListener("mousedown", (e) => {
+function startDrawing(e) {
   isDrawing = true;
-  x = e.offsetX;
-  y = e.offsetY;
+  // Use 'e.touches[0]' for touch events and 'e' for mouse events
+  const { offsetX, offsetY } = getOffset(e);
+  x = offsetX;
+  y = offsetY;
   drawDot(x, y);
   ctx.moveTo(x, y);
-});
+}
 
-canvas.addEventListener("mouseup", () => {
+function stopDrawing() {
   isDrawing = false;
   ctx.beginPath();
-});
-
-canvas.addEventListener("mousemove", draw);
+}
 
 function draw(e) {
   if (!isDrawing) return;
+  const { offsetX, offsetY } = getOffset(e);
 
   ctx.lineCap = "round";
-  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.lineTo(offsetX, offsetY);
   ctx.stroke();
   ctx.beginPath();
-  ctx.moveTo(e.offsetX, e.offsetY);
+  ctx.moveTo(offsetX, offsetY);
+}
+
+function getOffset(e) {
+  // Check if it's a touch event
+  if (e.touches) {
+    // Adjust for touch event offset
+    let rect = e.target.getBoundingClientRect();
+    let offsetX = e.touches[0].clientX - rect.left;
+    let offsetY = e.touches[0].clientY - rect.top;
+    return { offsetX, offsetY };
+  } else {
+    // Mouse event offset
+    return { offsetX: e.offsetX, offsetY: e.offsetY };
+  }
 }
 
 function drawDot(x, y) {
@@ -43,6 +57,22 @@ function drawDot(x, y) {
   ctx.closePath();
   ctx.beginPath();
 }
+
+canvas.addEventListener("mousedown", startDrawing);
+canvas.addEventListener("mouseup", stopDrawing);
+canvas.addEventListener("mousemove", draw);
+
+// Adding touch event listeners
+canvas.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent scrolling when touching the canvas
+  startDrawing(e);
+});
+
+canvas.addEventListener("touchend", stopDrawing);
+canvas.addEventListener("touchmove", (e) => {
+  e.preventDefault(); // Prevent scrolling when touching the canvas
+  draw(e);
+});
 
 //selecting color
 const colors = [...document.getElementsByClassName("palette_color")];
